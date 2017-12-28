@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset=utf-8>
+		<title>My first three.js app</title>
+		<style>
+			body { margin: 0; }
+      .menu {
+        width: 20%;
+        height: 100%;
+        float: left;
+      }
+			canvas {
+        width: 80% !important;
+        float: right;
+      }
+		</style>
+	</head>
+	<body>
+		<script src="js/three.min.js"></script>
+		<script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/frontend.js"></script>
+    <div class="menu">
+			<h1>Camera</h1>
+			<h2>Position</h1>
+			X: <input id="camera-position-x" type="number"></input>
+			Y: <input id="camera-position-y" type="number"></input>
+			Z: <input id="camera-position-z" type="number"></input>
+		</div>
+	</body>
+</html>
