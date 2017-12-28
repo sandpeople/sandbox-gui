@@ -2,6 +2,10 @@ import React from 'react';
 import * as THREE from 'three';
 import {updateTHREEVector3, updatedCameraPosition, updateKinectPosition} from './Utils';
 
+import Sandbox from './sidebar/Sandbox';
+import Camera from './sidebar/Camera';
+import Kinect from './sidebar/Kinect';
+
 class Sidebar extends React.Component {
 
   updateInput(e) {
@@ -25,53 +29,22 @@ class Sidebar extends React.Component {
   render() {
     console.log(this.props.json);
     return (
-    <div className="controls">
-      <h1>Camera</h1>
-      <ul>
-        <li>
-          X:
-          <input
-            type="number"
-            name="camera-position-x"
-            value={this.props.json.camera.position.x}
-            onChange={this.updateInput.bind(this)}
-          >
-          </input>
-        </li>
-        <li>
-          Y:
-          <input
-            type="number"
-            name="camera-position-y"
-            value={this.props.json.camera.position.y}
-            onChange={this.updateInput.bind(this)}
-          >
-          </input>
-        </li>
-        <li>
-          Z:
-          <input
-            type="number"
-            name="camera-position-z"
-            value={this.props.json.camera.position.z}
-            onChange={this.updateInput.bind(this)}
-          >
-          </input>
-        </li>
-      </ul>
-      <h1>Kinect1</h1>
-      <ul>
-        <li>
-          X:
-          <input
-            type="number"
-            name="kinect0-position-x"
-            value={this.props.json.kinects[0].position.x}
-            onChange={this.updateInput.bind(this)}
-          >
-          </input>
-        </li>
-      </ul>
+    <div className="sidebar">
+      <Sandbox
+        json={this.props.json}
+        updateJSON={this.props.updateJSON}
+      />
+      <Camera
+        json={this.props.json}
+        updateJSON={this.props.updateJSON}
+      />
+      {this.props.json.kinects.map((e,i) =>
+        <Kinect
+          id={i}
+          json={this.props.json}
+          updateJSON={this.props.updateJSON}
+        />
+      )}
     </div>);
   }
 }

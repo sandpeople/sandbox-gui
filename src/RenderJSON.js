@@ -1,7 +1,10 @@
 import React from 'react';
-  import React3 from 'react-three-renderer';
+import React3 from 'react-three-renderer';
 import * as THREE from 'three';
 import ReactDOM from 'react-dom';
+
+import Kinect from './render/Kinect';
+import Sandbox from './render/Sandbox';
 
 class RenderJSON extends React.Component {
   constructor(props, context) {
@@ -34,26 +37,20 @@ class RenderJSON extends React.Component {
         <scene>
           <perspectiveCamera
             name="camera"
-            fov={75}
+            fov={30}
             aspect={width / height}
             near={0.1}
             far={1000}
 
             position={this.props.json.camera.position}
           />
-          <mesh
-            rotation={this.props.json.cubeRotation}
-            position={this.props.json.kinects[0].position}
-          >
-            <boxGeometry
-              width={1}
-              height={1}
-              depth={1}
+          <Sandbox json={this.props.json}/>
+          {this.props.json.kinects.map((e,i) =>
+            <Kinect
+              id={i}
+              json={this.props.json}
             />
-            <meshBasicMaterial
-              color={0x00ff00}
-            />
-          </mesh>
+          )}
         </scene>
       </React3>
     </div>);

@@ -28,3 +28,10 @@ export function updateKinectPosition(json, i, {x=false, y=false, z=false}, updat
   kinects[i].position = updatedKinectPosition;
   updateJSON({kinects});
 }
+
+export function updateSandbox(json, {width=false, height=false}, updateJSON) {
+  width = width ? width : json.sandbox.width;
+  height = height ? height : json.sandbox.height;
+  let updatedSandbox = {width, height};
+  updateJSON({sandbox:updatedSandbox});
+}

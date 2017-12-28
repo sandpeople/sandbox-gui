@@ -10,16 +10,27 @@ class App extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
+      sandbox: {
+        width: 30,
+        depth: 3,
+        height: 3,
+      },
       camera: {
-        position:  new THREE.Vector3(0, 0, 5)
+        position:  new THREE.Vector3(0, 0, 20)
       },
       kinects: [
         {
           name: 'kinect1',
-          position: new THREE.Vector3(0,0,0)
-        }
+          position: new THREE.Vector3(0,0,0),
+          rotation: new THREE.Euler(),
+        },
+        {
+          name: 'kinect2',
+          position: new THREE.Vector3(0,-3,0),
+          rotation: new THREE.Euler(),
+        },
+
       ],
-      cubeRotation: new THREE.Euler(),
     };
   }
   updateJSON(json) {
