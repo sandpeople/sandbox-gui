@@ -13,11 +13,22 @@ class App extends Component {
       camera: {
         position:  new THREE.Vector3(0, 0, 5)
       },
+      kinects: [
+        {
+          name: 'kinect1',
+          position: new THREE.Vector3(0,0,0)
+        }
+      ],
       cubeRotation: new THREE.Euler(),
     };
   }
   updateJSON(json) {
     this.setState(json);
+    this.rerender();
+  }
+
+  getManualRenderTrigger(trigger) {
+    this.rerender = trigger;
   }
 
   render() {
@@ -30,6 +41,7 @@ class App extends Component {
         <RenderJSON
           json={this.state}
           updateJSON={this.updateJSON.bind(this)}
+          getManualRenderTrigger={this.getManualRenderTrigger.bind(this)}
         />
       </div>
     );
