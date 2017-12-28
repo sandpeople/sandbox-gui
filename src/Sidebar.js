@@ -1,6 +1,6 @@
 import React from 'react';
 import * as THREE from 'three';
-import {updateTHREEVector3, updatedCameraPosition, updateKinectPosition} from './Utils';
+import {updateTHREEVector3, updatedCameraPosition, updateKinectPosition, addKinect} from './Utils';
 
 import Sandbox from './sidebar/Sandbox';
 import Camera from './sidebar/Camera';
@@ -26,6 +26,12 @@ class Sidebar extends React.Component {
     }
   }
 
+  addKinect() {
+    let json = this.props.json;
+    let updateJSON = this.props.updateJSON;
+    addKinect(json, {}, updateJSON);
+  }
+
   render() {
     console.log(this.props.json);
     return (
@@ -45,6 +51,10 @@ class Sidebar extends React.Component {
           updateJSON={this.props.updateJSON}
         />
       )}
+      <button
+        className="add-kinect"
+        onClick={this.addKinect.bind(this)}
+      >Add Kinect</button>
     </div>);
   }
 }

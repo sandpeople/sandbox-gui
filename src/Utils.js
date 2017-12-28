@@ -35,3 +35,13 @@ export function updateSandbox(json, {width=false, height=false}, updateJSON) {
   let updatedSandbox = {width, height};
   updateJSON({sandbox:updatedSandbox});
 }
+
+export function addKinect(json, {position=false, rotation=false, name=false}, updateJSON) {
+  let kinects = json.kinects.slice();
+  kinects.push({
+    position: position ? position : new THREE.Vector3(0,0,0),
+    rotation: rotation ? rotation : new THREE.Euler(),
+    name: name ? name : 'kinect' + (kinects.length + 1)
+  });
+  updateJSON({kinects});
+}
