@@ -1,6 +1,8 @@
 import React from 'react';
 
-import {updateTHREEVector3, updatedCameraPosition, updateKinectPosition} from '../Utils';
+import '../../css/sidebar/Kinect.css';
+
+import {updateKinectPosition, deleteKinect} from '../Utils';
 
 class Kinect extends React.Component {
   constructor(props, context) {
@@ -22,10 +24,23 @@ class Kinect extends React.Component {
       updateKinectPosition(json, this.id, {z:value}, updateJSON);
     }
   }
+
+  delete() {
+    let json = this.props.json;
+    let updateJSON = this.props.updateJSON;
+    deleteKinect(json, this.id, updateJSON);
+  }
+
   render() {
     return (
-      <div class="kinect" id={this.id}>
-        <h1>{this.props.json.kinects[this.id].name}</h1>
+      <div className="kinect" id={this.id}>
+        <div className="titlebar">
+          <h1>{this.props.json.kinects[this.id].name}</h1>
+          <button
+            className="delete"
+            onClick={this.delete.bind(this)}
+          >X</button>
+        </div>
         <ul>
           <li>
             X:

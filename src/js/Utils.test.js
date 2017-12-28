@@ -1,7 +1,6 @@
 require('should');
 
 import * as THREE from 'three';
-
 import * as Utils from './Utils';
 
 describe(`updateTHREEEuler`, () => {

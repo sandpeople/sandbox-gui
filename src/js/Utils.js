@@ -45,3 +45,9 @@ export function addKinect(json, {position=false, rotation=false, name=false}, up
   });
   updateJSON({kinects});
 }
+
+export function deleteKinect(json, i, updateJSON) {
+  let kinects = json.kinects.slice();
+  delete kinects[i];
+  updateJSON({kinects});  
+}

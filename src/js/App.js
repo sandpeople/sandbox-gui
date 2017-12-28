@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import * as THREE from 'three';
 
-import logo from './logo.svg';
-import './App.css';
 import RenderJSON from './RenderJSON';
 import Sidebar from './Sidebar';
 
