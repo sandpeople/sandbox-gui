@@ -1,7 +1,5 @@
 import React from 'react';
 
-import {updateTHREEVector3, updatedCameraPosition, updateKinectPosition} from '../Utils';
-
 class Kinect extends React.Component {
   constructor(props, context) {
     super(props, context);

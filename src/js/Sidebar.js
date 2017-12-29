@@ -1,8 +1,6 @@
 import React from 'react';
-import * as THREE from 'three';
 
 import {spawnKinect} from './Utils';
-
 import Sandbox from './sidebar/Sandbox';
 import Camera from './sidebar/Camera';
 import Kinect from './sidebar/Kinect';

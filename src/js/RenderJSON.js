@@ -1,17 +1,11 @@
 import React from 'react';
 import React3 from 'react-three-renderer';
-import * as THREE from 'three';
-import ReactDOM from 'react-dom';
 
 import Camera from './render/Camera';
 import Sandbox from './render/Sandbox';
 import Kinect from './render/Kinect';
 
 class RenderJSON extends React.Component {
-  constructor(props, context) {
-    super(props, context);
-  }
-
   _onManualRenderTriggerCreated(trigger) {
     this._renderTrigger = trigger;
     this.props.getManualRenderTrigger(trigger);
