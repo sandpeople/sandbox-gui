@@ -14,15 +14,15 @@ class Sandbox extends React.Component {
     let value = e.target.value;
 
     console.log(e.target.name, e.target.value);
-    if (name == 'sandbox-width') {
+    if (name ==='sandbox-width') {
       updateSandbox(json, {width:value}, updateJSON);
-    } else if(name == 'sandbox-height') {
+    } else if(name ==='sandbox-height') {
       updateSandbox(json, {height:value}, updateJSON);
     }
   }
   render() {
     return (
-      <div class="sandbox">
+      <div className="sandbox">
         <h1>Sandbox</h1>
         <ul>
           <li>

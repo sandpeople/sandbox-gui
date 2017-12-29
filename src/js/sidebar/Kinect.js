@@ -1,10 +1,11 @@
 import React from 'react';
 
+import PositionRotation from './PositionRotation';
+import {
+  updateKinectPosition,
+  deleteKinect,
+  updateKinectRotation} from '../Utils';
 import '../../css/sidebar/Kinect.css';
-
-import SidebarItem from './SidebarItem';
-
-import {updateKinectPosition, deleteKinect, updateKinectRotation} from '../Utils';
 
 class Kinect extends React.Component {
   constructor(props, context) {
@@ -18,17 +19,17 @@ class Kinect extends React.Component {
     let value = e.target.value;
 
     console.log(e.target.name, e.target.value);
-    if (name == 'kinect-position-x') {
+    if (name ==='kinect-position-x') {
       updateKinectPosition(json, this.id, {x:value}, updateJSON);
-    } else if(name == 'kinect-position-y') {
+    } else if(name ==='kinect-position-y') {
       updateKinectPosition(json, this.id, {y:value}, updateJSON);
-    } else if(name == 'kinect-position-z') {
+    } else if(name ==='kinect-position-z') {
       updateKinectPosition(json, this.id, {z:value}, updateJSON);
-    } else if (name == 'kinect-rotation-x') {
+    } else if (name ==='kinect-rotation-x') {
       updateKinectRotation(json, this.id, {x:value}, updateJSON);
-    } else if(name == 'kinect-rotation-y') {
+    } else if(name ==='kinect-rotation-y') {
       updateKinectRotation(json, this.id, {y:value}, updateJSON);
-    } else if(name == 'kinect-rotation-z') {
+    } else if(name ==='kinect-rotation-z') {
       updateKinectRotation(json, this.id, {z:value}, updateJSON);
     }
   }
@@ -41,12 +42,17 @@ class Kinect extends React.Component {
 
   render() {
     return (
-      <SidebarItem
-        h1={'kinect' + this.props.json.kinects.length }
-        className="kinect"
-        valueObj={this.props.json.kinects[this.id]}
-        onChange={this.updateInput.bind(this)}
-      />
+      <div className="kinect">
+        <div className="titlebar">
+          <h1>{'kinect' + (this.id + 1)}</h1>
+          <button onClick={this.delete.bind(this)}>X</button>
+        </div>
+        <PositionRotation
+          className="kinect"
+          valueObj={this.props.json.kinects[this.id]}
+          onChange={this.updateInput.bind(this)}
+        />
+      </div>
     );
   }
 }

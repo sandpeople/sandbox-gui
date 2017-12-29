@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import * as THREE from 'three';
 
+import {spawnKinect} from './Utils';
+
 import RenderJSON from './RenderJSON';
 import Sidebar from './Sidebar';
 
@@ -17,13 +19,7 @@ class App extends Component {
         position:  new THREE.Vector3(0, 0, 20),
         rotation: new THREE.Euler(0,0,0),
       },
-      kinects: [
-        {
-          name: 'kinect1',
-          position: new THREE.Vector3(0,0,3),
-          rotation: new THREE.Euler(0,0,0),
-        },
-      ],
+      kinects: [],
     };
   }
   updateJSON(json) {
@@ -33,6 +29,11 @@ class App extends Component {
 
   getManualRenderTrigger(trigger) {
     this.rerender = trigger;
+  }
+
+  componentDidMount() {
+    console.log('foo', this.state, this.updateJSON);
+    //spawnKinect(this.state, this.updateJSON);
   }
 
   render() {

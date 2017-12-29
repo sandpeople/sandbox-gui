@@ -1,7 +1,7 @@
 import React from 'react';
 import * as THREE from 'three';
 
-import {addKinect} from './Utils';
+import {spawnKinect} from './Utils';
 
 import Sandbox from './sidebar/Sandbox';
 import Camera from './sidebar/Camera';
@@ -11,7 +11,7 @@ class Sidebar extends React.Component {
   addKinect() {
     let json = this.props.json;
     let updateJSON = this.props.updateJSON;
-    addKinect(json, {}, updateJSON);
+    spawnKinect(json, updateJSON);
   }
 
   render() {
