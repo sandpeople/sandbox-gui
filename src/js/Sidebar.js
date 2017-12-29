@@ -5,6 +5,15 @@ import Sandbox from './sidebar/Sandbox';
 import Camera from './sidebar/Camera';
 import Kinect from './sidebar/Kinect';
 
+/**
+ * Component to display complete Sidebar. Sidebar allows you to
+ * control the position/rotation of the kinects etc. with an input.
+ *
+ * Sidebar renders the list of existing kinects/camera/sandbox,
+ * let's you add/remove kinects and modify properties of the elements
+ * with a input.
+ * @extends React
+ */
 class Sidebar extends React.Component {
   addKinect() {
     let json = this.props.json;

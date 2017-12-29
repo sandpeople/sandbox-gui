@@ -217,18 +217,19 @@ export function spawnKinect(json, updateJSON) {
 }
 
 /**
- * Removes array without index i. Returns a new array.
+ * Returns a new array, where it contains all elements of arr, except of that
+ * with index === removeIndex.
  * Example:
  * > arrayRemove(['a', 'b', 'c'], 1)
  * ['a', 'c']
- * @param  {Array} array
+ * @param  {Array} arr
  * @param  {Integer} i
  * @return {Array}
  */
-export function arrayRemove(array, removeIndex) {
+export function arrayRemove(arr, removeIndex) {
   let narray = [];
-  for(let i=0;i<array.length;i++) {
-    if(i !== removeIndex) narray.push(array[i]);
+  for(let i=0;i<arr.length;i++) {
+    if(i !== removeIndex) narray.push(arr[i]);
   }
   return narray;
 }
