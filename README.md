@@ -10,6 +10,7 @@ CCFR
 - Run `npm install --only=production` to download dependencies. You can ignore the "--only=production" if you also want development dependencies. This might take a while. Don't ask.
 - Run `npm run build` to build latest "productional" static files.
 - Copy everything from `./build` into your webroot.
+- Happy Hacking
 
 # Development
 
@@ -22,7 +23,12 @@ CCFR
 
 ### Why is a build folder in your repository? Isn't this bad practive?
 
-Yup it it. But we maybe want to submodule this repo into the main repo,
+Yup it is. But we maybe want to submodule this repo into the main repo,
 so that everything is in one place and you only have to clone one repo
 to have all the sources but don't npm to just build the webui to calibrate
 your kinect cameras.
+
+### Why is there a .js.map file bigger than >7mb in our build files?
+
+It's there for debugging reasons. The javascript code get's minified and transpiled, to still be able to figure out which line of code is problematic, we need
+those .map file. As long as you don't want to debug any code in production, feel free to not copy that file in your webroot.
