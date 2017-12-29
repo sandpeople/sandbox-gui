@@ -44,6 +44,7 @@ class RenderJSON extends React.Component {
           <Sandbox json={this.props.json}/>
           {this.props.json.kinects.map((e,i) =>
             <Kinect
+              key={i}
               id={i}
               json={this.props.json}
             />

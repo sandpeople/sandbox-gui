@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import * as THREE from 'three';
 
+
+import {spawnKinect} from './Utils';
+
+import CONSTANTS from '../CONSTANTS';
 import RenderJSON from './RenderJSON';
 import Sidebar from './Sidebar';
 
@@ -10,7 +14,6 @@ class App extends Component {
     this.state = {
       sandbox: {
         width: 30,
-        depth: 3,
         height: 3,
       },
       camera: {
@@ -30,8 +33,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    console.log('foo', this.state, this.updateJSON);
-    //spawnKinect(this.state, this.updateJSON);
+    spawnKinect(this.state, this.updateJSON.bind(this));
   }
 
   render() {

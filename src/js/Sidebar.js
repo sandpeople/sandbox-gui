@@ -35,6 +35,7 @@ class Sidebar extends React.Component {
       />
       {this.props.json.kinects.map((e,i) =>
         <Kinect
+          key={i}
           id={i}
           json={this.props.json}
           updateJSON={this.props.updateJSON}
