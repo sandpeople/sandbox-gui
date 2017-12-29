@@ -10,7 +10,6 @@ CCFR
 - Run `npm install --only=production` to download dependencies. You can ignore the "--only=production" if you also want development dependencies. This might take a while. Don't ask.
 - Run `npm run build` to build latest "productional" static files.
 - Copy everything from `./build` into your webroot.
-- Happy Hacking
 
 # Development
 
@@ -18,6 +17,7 @@ CCFR
 - Run `npm start` to launch a development server and start hacking around in `./src`. There's everything you need.
 - To run unit tests, do an `npm test`.
 - Want to build production files? `npm run build`
+- Happy Hacking
 
 # FAQ
 
