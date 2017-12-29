@@ -6,12 +6,17 @@ body {
 
 .sidebar {
   position: absolute;
-  width: auto;
+  width: 20%;
   height: 100%;
   float: left;
   background-color: rgba(255, 255, 255, 0.6);
   padding-right: 4px;
   overflow-y: scroll;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  -webkit-padding-start: 0px;
 }
 
 .render {

@@ -3,8 +3,9 @@ import React3 from 'react-three-renderer';
 import * as THREE from 'three';
 import ReactDOM from 'react-dom';
 
-import Kinect from './render/Kinect';
+import Camera from './render/Camera';
 import Sandbox from './render/Sandbox';
+import Kinect from './render/Kinect';
 
 class RenderJSON extends React.Component {
   constructor(props, context) {
@@ -35,15 +36,7 @@ class RenderJSON extends React.Component {
         onManualRenderTriggerCreated={this._onManualRenderTriggerCreated.bind(this)}
       >
         <scene>
-          <perspectiveCamera
-            name="camera"
-            fov={30}
-            aspect={width / height}
-            near={0.1}
-            far={1000}
-
-            position={this.props.json.camera.position}
-          />
+          <Camera json={this.props.json} aspect={width/height}/>
           <Sandbox json={this.props.json}/>
           {this.props.json.kinects.map((e,i) =>
             <Kinect

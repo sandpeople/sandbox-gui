@@ -1,0 +1,30 @@
+.splitted-xyz-rot {
+  display: flow-root;
+}
+
+.splitted-xyz-rot input {
+  width: 70%;
+}
+
+.splitted-xyz-rot ul {
+  -webkit-margin-before: 3px;
+  -webkit-margin-after: 0;
+}
+
+.splitted-xyz-rot h4 {
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+
+}
+
+.splitted-xyz-rot .xyz {
+  width: 49%;
+  float: left;
+  border-right-width: 1px;
+  border-right-style: solid;
+}
+
+.splitted-xyz-rot .rot {
+  width: 49%;
+  float: right;
+}

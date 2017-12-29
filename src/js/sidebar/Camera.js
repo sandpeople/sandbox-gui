@@ -1,6 +1,7 @@
 import React from 'react';
 
-import {updateTHREEVector3, updatedCameraPosition, updateKinectPosition} from '../Utils';
+import SidebarItem from './SidebarItem';
+import {updateCameraPosition, updateCameraRotation} from '../Utils';
 
 
 class Camera extends React.Component {
@@ -11,51 +12,29 @@ class Camera extends React.Component {
     let value = e.target.value;
 
     console.log(e.target.name, e.target.value);
-    if(e.target.name == 'camera-position-x') {
-      updatedCameraPosition(json, {x:value}, updateJSON);
+    if(name == 'camera-position-x') {
+      updateCameraPosition(json, {x:value}, updateJSON);
     } else if (name == 'camera-position-y') {
-      updatedCameraPosition(json, {y:value}, updateJSON);
+      updateCameraPosition(json, {y:value}, updateJSON);
     } else if (name == 'camera-position-z') {
-      updatedCameraPosition(json, {z:value}, updateJSON);
+      updateCameraPosition(json, {z:value}, updateJSON);
+    } else if(name == 'camera-rotation-x') {
+      updateCameraRotation(json, {x:value}, updateJSON);
+    } else if (name == 'camera-rotation-y') {
+      updateCameraRotation(json, {y:value}, updateJSON);
+    } else if (name == 'camera-rotation-z') {
+      updateCameraRotation(json, {z:value}, updateJSON);
     }
   }
   render() {
+    console.log("hu", this.props);
     return (
-      <div className="camera">
-        <h1>Camera</h1>
-        <ul>
-          <li>
-            X:
-            <input
-              type="number"
-              name="camera-position-x"
-              value={this.props.json.camera.position.x}
-              onChange={this.updateInput.bind(this)}
-            >
-            </input>
-          </li>
-          <li>
-            Y:
-            <input
-              type="number"
-              name="camera-position-y"
-              value={this.props.json.camera.position.y}
-              onChange={this.updateInput.bind(this)}
-            >
-            </input>
-          </li>
-          <li>
-            Z:
-            <input
-              type="number"
-              name="camera-position-z"
-              value={this.props.json.camera.position.z}
-              onChange={this.updateInput.bind(this)}
-            >
-            </input>
-          </li>
-        </ul>
-      </div>
+      <SidebarItem
+        h1="Camera"
+        className="camera"
+        valueObj={this.props.json.camera}
+        onChange={this.updateInput.bind(this)}
+      />
     );
   }
 }

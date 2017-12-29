@@ -14,20 +14,15 @@ class App extends Component {
         height: 3,
       },
       camera: {
-        position:  new THREE.Vector3(0, 0, 20)
+        position:  new THREE.Vector3(0, 0, 20),
+        rotation: new THREE.Euler(0,0,0),
       },
       kinects: [
         {
           name: 'kinect1',
-          position: new THREE.Vector3(0,0,0),
-          rotation: new THREE.Euler(),
+          position: new THREE.Vector3(0,0,3),
+          rotation: new THREE.Euler(0,0,0),
         },
-        {
-          name: 'kinect2',
-          position: new THREE.Vector3(0,-3,0),
-          rotation: new THREE.Euler(),
-        },
-
       ],
     };
   }

@@ -1,31 +1,13 @@
 import React from 'react';
 import * as THREE from 'three';
-import {updateTHREEVector3, updatedCameraPosition, updateKinectPosition, addKinect} from './Utils';
+
+import {addKinect} from './Utils';
 
 import Sandbox from './sidebar/Sandbox';
 import Camera from './sidebar/Camera';
 import Kinect from './sidebar/Kinect';
 
 class Sidebar extends React.Component {
-
-  updateInput(e) {
-    let json = this.props.json;
-    let updateJSON = this.props.updateJSON;
-    let name = e.target.name;
-    let value = e.target.value;
-
-    console.log(e.target.name, e.target.value);
-    if(e.target.name == 'camera-position-x') {
-      updatedCameraPosition(json, {x:value}, updateJSON);
-    } else if (name == 'camera-position-y') {
-      updatedCameraPosition(json, {y:value}, updateJSON);
-    } else if (name == 'camera-position-z') {
-      updatedCameraPosition(json, {z:value}, updateJSON);
-    } else if (name == 'kinect0-position-x') {
-      updateKinectPosition(json, 0, {x:value}, updateJSON);
-    }
-  }
-
   addKinect() {
     let json = this.props.json;
     let updateJSON = this.props.updateJSON;

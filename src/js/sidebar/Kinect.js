@@ -2,7 +2,9 @@ import React from 'react';
 
 import '../../css/sidebar/Kinect.css';
 
-import {updateKinectPosition, deleteKinect} from '../Utils';
+import SidebarItem from './SidebarItem';
+
+import {updateKinectPosition, deleteKinect, updateKinectRotation} from '../Utils';
 
 class Kinect extends React.Component {
   constructor(props, context) {
@@ -22,6 +24,12 @@ class Kinect extends React.Component {
       updateKinectPosition(json, this.id, {y:value}, updateJSON);
     } else if(name == 'kinect-position-z') {
       updateKinectPosition(json, this.id, {z:value}, updateJSON);
+    } else if (name == 'kinect-rotation-x') {
+      updateKinectRotation(json, this.id, {x:value}, updateJSON);
+    } else if(name == 'kinect-rotation-y') {
+      updateKinectRotation(json, this.id, {y:value}, updateJSON);
+    } else if(name == 'kinect-rotation-z') {
+      updateKinectRotation(json, this.id, {z:value}, updateJSON);
     }
   }
 
@@ -33,47 +41,12 @@ class Kinect extends React.Component {
 
   render() {
     return (
-      <div className="kinect" id={this.id}>
-        <div className="titlebar">
-          <h1>{this.props.json.kinects[this.id].name}</h1>
-          <button
-            className="delete"
-            onClick={this.delete.bind(this)}
-          >X</button>
-        </div>
-        <ul>
-          <li>
-            X:
-            <input
-              type="number"
-              name="kinect-position-x"
-              value={this.props.json.kinects[this.id].position.x}
-              onChange={this.updateInput.bind(this)}
-            >
-            </input>
-          </li>
-          <li>
-            Y:
-            <input
-              type="number"
-              name="kinect-position-y"
-              value={this.props.json.kinects[this.id].position.y}
-              onChange={this.updateInput.bind(this)}
-            >
-            </input>
-          </li>
-          <li>
-            Z:
-            <input
-              type="number"
-              name="kinect-position-z"
-              value={this.props.json.kinects[this.id].position.z}
-              onChange={this.updateInput.bind(this)}
-            >
-            </input>
-          </li>
-        </ul>
-      </div>
+      <SidebarItem
+        h1={'kinect' + this.props.json.kinects.length }
+        className="kinect"
+        valueObj={this.props.json.kinects[this.id]}
+        onChange={this.updateInput.bind(this)}
+      />
     );
   }
 }
