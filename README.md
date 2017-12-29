@@ -7,13 +7,20 @@ CCFR
 
 - Make sure you have node at least in v9.3.0  and npm in v5.6.0. Older might work, not tested.
 - Clone this repo, cd into repo folder.
-- Run `npm install` to download dependencies. This might take a while. Don't ask.
+- Run `npm install --only=production` to download dependencies. You can ignore the "--only=production" if you also want development dependencies. This might take a while. Don't ask.
 - Run `npm run build` to build latest "productional" static files.
 - Copy everything from `./build` into your webroot.
 
+# Development
+
+- To get started do an `npm install` in case you haven't done that already. "--only-production" is NOT enough, you also need development dependencies.
+- Run `npm start` to launch a development server and start hacking around in `./src`. There's everything you need.
+- To run unit tests, do an `npm test`.
+- Want to build production files? `npm run build`
+
 # FAQ
 
-- Why is a build folder in your repository? Isn't this bad practive?
+### Why is a build folder in your repository? Isn't this bad practive?
 
 Yup it it. But we maybe want to submodule this repo into the main repo,
 so that everything is in one place and you only have to clone one repo
