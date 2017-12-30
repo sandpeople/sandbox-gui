@@ -59,7 +59,7 @@ class Projector extends React.Component {
       <div className="projector">
         <div className="titlebar">
           <h1>{'projector' + (this.id + 1)}</h1>
-          <button onClick={this.props.delete}>X</button>
+          <button onClick={this.delete.bind(this)}>X</button>
         </div>
         <div className="row">
           <div className="col-6">
