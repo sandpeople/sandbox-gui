@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import * as THREE from 'three';
 
 
-import {spawnKinect} from '../Utils';
+import {spawnKinect} from '../UtilsKinect';
 
 import CONSTANTS from '../../CONSTANTS';
 import RenderJSON from './render/RenderJSON';

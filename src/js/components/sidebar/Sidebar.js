@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {spawnKinect} from '../../Utils';
+import {spawnKinect} from '../../UtilsKinect';
 import Sandbox from './Sandbox';
 import Camera from './Camera';
 import Kinect from './Kinect';

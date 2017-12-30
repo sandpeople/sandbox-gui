@@ -8,7 +8,7 @@ import {
   updateKinectPosition,
   deleteKinect,
   updateKinectRotation,
-  updateKinectSize} from '../../Utils';
+  updateKinectSize} from '../../UtilsKinect';
 
 class Kinect extends React.Component {
   constructor(props, context) {
