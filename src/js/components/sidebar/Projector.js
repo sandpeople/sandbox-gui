@@ -1,6 +1,9 @@
 import React from 'react';
 
-import PositionRotationWidthHeightElement from './PositionRotationWidthHeightElement';
+import '../../../css/sidebar/PositionRotationWidthHeightElement.css';
+import XYZUlInput from './XYZUlInput';
+import {PositionRotation} from './PositionRotation';
+import WidthHeightUlInput from './WidthHeightUlInput';
 import {
   updateProjectorPosition,
   deleteProjector,
@@ -46,15 +49,38 @@ class Projector extends React.Component {
 
   render() {
     return (
-      <PositionRotationWidthHeightElement
-        className="projector"
-        id={this.id}
-        property="projectors"
-        delete={this.delete.bind(this)}
-        json={this.props.json}
-        updateInput={this.updateInput.bind(this)}
-        onChange={this.props.onChange}
-      />
+      <div className="projector">
+        <div className="titlebar">
+          <h1>{'projector' + (this.id + 1)}</h1>
+          <button onClick={this.props.delete}>X</button>
+        </div>
+        <div className="row">
+          <div className="col-6">
+            <h4>Size</h4>
+            <WidthHeightUlInput
+              prefix="projector"
+              valueObj={this.props.json.projectors[this.id]}
+              json={this.props.json}
+              updateInput={this.updateInput.bind(this)}
+              onChange={this.props.onChange}
+            />
+          </div>
+          <div className="col-6">
+            <h4>POV Position</h4>
+            <XYZUlInput
+              className="projector"
+              sense="positionPov"
+              valueObj={this.props.json.projectors[this.id]}
+              onChange={this.updateInput.bind(this)}
+            />
+          </div>
+        </div>
+        <PositionRotation
+          className="projector"
+          valueObj={this.props.json.projectors[this.id]}
+          onChange={this.updateInput.bind(this)}
+        />
+      </div>
     );
   }
 }
