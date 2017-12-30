@@ -138,8 +138,8 @@ export function updateKinectRotation(json, i, {x=false, y=false, z=false}, updat
  *         App Component.
  */
 export function updateSandbox(json, {width=false, height=false}, updateJSON) {
-  width = width ? width : json.sandbox.width;
-  height = height ? height : json.sandbox.height;
+  width = width ? parseFloat(width) : json.sandbox.width;
+  height = height ? parseFloat(height) : json.sandbox.height;
   let updatedSandbox = {width, height};
   updateJSON({sandbox:updatedSandbox});
 }
