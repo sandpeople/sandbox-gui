@@ -1,6 +1,9 @@
 import React from 'react';
 
+import '../../css/columns.css';
+
 import {updateSandbox} from '../Utils';
+
 
 class Sandbox extends React.Component {
   constructor(props, context) {
@@ -25,26 +28,24 @@ class Sandbox extends React.Component {
       <div className="sandbox">
         <h1>Sandbox</h1>
         <ul>
-          <li>
-            Width:
-            <input
-              type="number"
-              name="sandbox-width"
-              value={this.props.json.sandbox.width}
-              onChange={this.updateInput.bind(this)}
-            >
-            </input>
-          </li>
-          <li>
-            Height:
-            <input
-              type="number"
-              name="sandbox-height"
-              value={this.props.json.sandbox.height}
-              onChange={this.updateInput.bind(this)}
-            >
-            </input>
-          </li>
+          {['width', 'height'].map((k) =>
+            <li>
+              <div className="row">
+                <div className="col-6">
+                  Width:
+                </div>
+                <div className="col-6">
+                  <input
+                    type="number"
+                    name={'sandbox-' + k}
+                    value={this.props.json.sandbox[k]}
+                    onChange={this.updateInput.bind(this)}
+                  >
+                  </input>
+                </div>
+              </div>
+            </li>
+          )}
         </ul>
       </div>
     );

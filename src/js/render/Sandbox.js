@@ -13,10 +13,9 @@ class Sandbox extends React.Component {
       <mesh
         position={this.position}
       >
-        <boxGeometry
+        <planeGeometry
           width={this.props.json.sandbox.width}
           height={this.props.json.sandbox.height}
-          depth={1}
         />
         <meshBasicMaterial
           color={0xcca300}

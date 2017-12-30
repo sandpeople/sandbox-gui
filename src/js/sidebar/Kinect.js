@@ -1,6 +1,6 @@
 import React from 'react';
 
-import PositionRotation from './PositionRotation';
+import {PositionRotation} from './PositionRotation';
 import {
   updateKinectPosition,
   deleteKinect,

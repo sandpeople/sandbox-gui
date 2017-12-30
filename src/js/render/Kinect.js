@@ -1,5 +1,7 @@
 import React from 'react';
 
+import CONSTANTS from '../../CONSTANTS';
+
 class Kinect extends React.Component {
   constructor(props, context) {
     super(props, context);
@@ -12,10 +14,9 @@ class Kinect extends React.Component {
         rotation={this.props.json.kinects[this.id].rotation}
         position={this.props.json.kinects[this.id].position}
       >
-        <boxGeometry
-          width={1}
-          height={1}
-          depth={1}
+        <planeGeometry
+          width={CONSTANTS.KINECT_SPAWN_WIDTH}
+          height={CONSTANTS.KINECT_SPAWN_HEIGHT}
         />
         <meshBasicMaterial
           color={0x00ff00}
