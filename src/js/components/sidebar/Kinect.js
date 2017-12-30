@@ -1,11 +1,12 @@
 import React from 'react';
 
+import '../../../css/sidebar/Kinect.css';
+
 import {PositionRotation} from './PositionRotation';
 import {
   updateKinectPosition,
   deleteKinect,
-  updateKinectRotation} from '../Utils';
-import '../../css/sidebar/Kinect.css';
+  updateKinectRotation} from '../../Utils';
 
 class Kinect extends React.Component {
   constructor(props, context) {

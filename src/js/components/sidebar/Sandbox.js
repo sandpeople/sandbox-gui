@@ -1,8 +1,8 @@
 import React from 'react';
 
-import '../../css/columns.css';
+import '../../../css/columns.css';
 
-import {updateSandbox} from '../Utils';
+import {updateSandbox, capitalize} from '../../Utils';
 
 
 class Sandbox extends React.Component {
@@ -29,10 +29,10 @@ class Sandbox extends React.Component {
         <h1>Sandbox</h1>
         <ul>
           {['width', 'height'].map((k) =>
-            <li>
+            <li key={k}>
               <div className="row">
                 <div className="col-6">
-                  Width:
+                  {capitalize(k)}:
                 </div>
                 <div className="col-6">
                   <input

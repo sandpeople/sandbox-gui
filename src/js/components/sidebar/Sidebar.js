@@ -1,9 +1,9 @@
 import React from 'react';
 
-import {spawnKinect} from './Utils';
-import Sandbox from './sidebar/Sandbox';
-import Camera from './sidebar/Camera';
-import Kinect from './sidebar/Kinect';
+import {spawnKinect} from '../../Utils';
+import Sandbox from './Sandbox';
+import Camera from './Camera';
+import Kinect from './Kinect';
 
 /**
  * Component to display complete Sidebar. Sidebar allows you to

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {PositionRotation} from './PositionRotation';
-import {updateCameraPosition, updateCameraRotation} from '../Utils';
+import {updateCameraPosition, updateCameraRotation} from '../../Utils';
 
 
 class Camera extends React.Component {

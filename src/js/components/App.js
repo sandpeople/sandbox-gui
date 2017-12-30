@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import * as THREE from 'three';
 
 
-import {spawnKinect} from './Utils';
+import {spawnKinect} from '../Utils';
 
-import CONSTANTS from '../CONSTANTS';
-import RenderJSON from './RenderJSON';
-import Sidebar from './Sidebar';
+import CONSTANTS from '../../CONSTANTS';
+import RenderJSON from './render/RenderJSON';
+import Sidebar from './sidebar/Sidebar';
 
 class App extends Component {
   constructor(props, context) {

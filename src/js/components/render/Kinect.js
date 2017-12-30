@@ -1,6 +1,6 @@
 import React from 'react';
 
-import CONSTANTS from '../../CONSTANTS';
+import CONSTANTS from '../../../CONSTANTS';
 
 class Kinect extends React.Component {
   constructor(props, context) {

@@ -1,9 +1,9 @@
 import React from 'react';
 import React3 from 'react-three-renderer';
 
-import Camera from './render/Camera';
-import Sandbox from './render/Sandbox';
-import Kinect from './render/Kinect';
+import Camera from './Camera';
+import Sandbox from './Sandbox';
+import Kinect from './Kinect';
 
 /**
  * This Component translates the Calibration JSON into a 3D View.
