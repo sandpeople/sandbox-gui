@@ -2,7 +2,7 @@ import React from 'react';
 
 import CONSTANTS from '../../../CONSTANTS';
 
-class Projector extends React.Component {
+class ProjectorArea extends React.Component {
   constructor(props, context) {
     super(props, context);
     this.id = props.id;
@@ -26,4 +26,4 @@ class Projector extends React.Component {
   }
 }
 
-export default Projector;
+export default ProjectorArea;

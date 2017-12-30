@@ -8,7 +8,8 @@ import {
   updateProjectorPosition,
   deleteProjector,
   updateProjectorRotation,
-  updateProjectorSize} from '../../UtilsProjector';
+  updateProjectorSize,
+  updateProjectorPovPosition} from '../../UtilsProjector';
 
 class Projector extends React.Component {
   constructor(props, context) {
@@ -38,6 +39,12 @@ class Projector extends React.Component {
       updateProjectorSize(json, this.id, {width:value}, updateJSON);
     } else if(name === 'projector-height') {
       updateProjectorSize(json, this.id, {height:value}, updateJSON);
+    } else if (name ==='projector-positionPov-x') {
+      updateProjectorPovPosition(json, this.id, {x:value}, updateJSON);
+    } else if(name ==='projector-positionPov-y') {
+      updateProjectorPovPosition(json, this.id, {y:value}, updateJSON);
+    } else if(name ==='projector-positionPov-z') {
+      updateProjectorPovPosition(json, this.id, {z:value}, updateJSON);
     }
   }
 

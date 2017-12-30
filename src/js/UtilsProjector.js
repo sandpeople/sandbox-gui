@@ -43,6 +43,14 @@ export function updateProjectorSize(json, i, {width=false, height=false}, update
     updateJSON);
 }
 
+export function updateProjectorPovPosition(json, i, {x=false, y=false, z=false}, updateJSON) {
+  updateProjector(
+    json,
+    i,
+    {positionPov: updateTHREEEuler(json.projectors[i].positionPov, {x,y,z})},
+    updateJSON);
+}
+
 export function addProjector(
   json,
   {position=false, rotation=false, height=false, width=false, positionPov=false},

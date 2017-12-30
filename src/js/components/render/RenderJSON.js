@@ -4,7 +4,8 @@ import React3 from 'react-three-renderer';
 import Camera from './Camera';
 import Sandbox from './Sandbox';
 import Kinect from './Kinect';
-import Projector from './Projector';
+import ProjectorArea from './ProjectorArea';
+import ProjectorPov from './ProjectorPov';
 
 /**
  * This Component translates the Calibration JSON into a 3D View.
@@ -51,7 +52,14 @@ class RenderJSON extends React.Component {
             />
           )}
           {this.props.json.projectors.map((e,i) =>
-            <Projector
+            <ProjectorArea
+              key={i}
+              id={i}
+              json={this.props.json}
+            />
+          )}
+          {this.props.json.projectors.map((e,i) =>
+            <ProjectorPov
               key={i}
               id={i}
               json={this.props.json}
