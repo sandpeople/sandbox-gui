@@ -11,10 +11,10 @@ export class WidthHeightUlInput extends React.Component {
           {['width', 'height'].map((k) =>
             <li key={k}>
               <div className="row">
-                <div className="col-6">
+                <div className="col-3">
                   {capitalize(k)}:
                 </div>
-                <div className="col-6">
+                <div className="col-9">
                   <input
                     type="number"
                     name={`${this.props.prefix}-${k}`}
