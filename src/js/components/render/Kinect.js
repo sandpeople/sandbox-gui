@@ -15,8 +15,8 @@ class Kinect extends React.Component {
         position={this.props.json.kinects[this.id].position}
       >
         <planeGeometry
-          width={CONSTANTS.KINECT_SPAWN_WIDTH}
-          height={CONSTANTS.KINECT_SPAWN_HEIGHT}
+          width={this.props.json.kinects[this.id].width}
+          height={this.props.json.kinects[this.id].height}
         />
         <meshBasicMaterial
           color={0x00ff00}

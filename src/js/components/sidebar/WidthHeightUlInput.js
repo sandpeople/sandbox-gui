@@ -18,7 +18,7 @@ export class WidthHeightUlInput extends React.Component {
                   <input
                     type="number"
                     name={`${this.props.prefix}-${k}`}
-                    value={this.props.json.sandbox[k]}
+                    value={this.props.valueObj[k]}
                     onChange={this.props.updateInput}
                   >
                   </input>

@@ -13,12 +13,18 @@ class App extends Component {
     super(props, context);
     this.state = {
       sandbox: {
-        width: 30,
-        height: 3,
+        width: CONSTANTS.SANDBOX_SPAWN_WIDTH,
+        height: CONSTANTS.SANDBOX_SPAWN_HEIGHT,
       },
       camera: {
-        position:  new THREE.Vector3(0, 0, 20),
-        rotation: new THREE.Euler(0,0,0),
+        position:  new THREE.Vector3(
+          CONSTANTS.CAMERA_SPAWN_POSITION_X,
+          CONSTANTS.CAMERA_SPAWN_POSITION_Y,
+          CONSTANTS.CAMERA_SPAWN_POSITION_Z),
+        rotation: new THREE.Euler(
+          CONSTANTS.CAMERA_SPAWN_ROTATION_X,
+          CONSTANTS.CAMERA_SPAWN_ROTATION_Y,
+          CONSTANTS.CAMERA_SPAWN_ROTATION_Z),
       },
       kinects: [],
     };

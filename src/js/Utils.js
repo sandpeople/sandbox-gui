@@ -91,6 +91,13 @@ export function updateCameraRotation(json, {x=false, y=false, z=false}, updateJS
   updateJSON({camera: {position: json.camera.position, rotation: updatedCameraRotation}});
 }
 
+export function updateKinect(json, i, merge, updateJSON) {
+  let kinects = json.kinects.slice();
+  let updatedKinect = Object.assign({}, kinects[i], merge);
+  kinects[i] = updatedKinect;
+  updateJSON({kinects});
+}
+
 /**
  * Allows you to update the position of a specific kinect.
  * @param  {Object} json
@@ -109,20 +116,31 @@ export function updateCameraRotation(json, {x=false, y=false, z=false}, updateJS
  *         App Component.
  */
 export function updateKinectPosition(json, i, {x=false, y=false, z=false}, updateJSON) {
-  let kinects = json.kinects.slice();
-  let kinectPosition = kinects[i].position;
-  let updatedKinectPosition = updateTHREEVector3(kinectPosition, {x,y,z});
-  kinects[i].position = updatedKinectPosition;
-  updateJSON({kinects});
+  updateKinect(
+    json,
+    i,
+    {position: updateTHREEVector3(json.kinects[i].position, {x,y,z})},
+    updateJSON);
 }
 
 export function updateKinectRotation(json, i, {x=false, y=false, z=false}, updateJSON) {
-  let kinects = json.kinects.slice();
-  let kinectRotation = kinects[i].rotation;
-  let updatedKinectRotation = updateTHREEEuler(kinectRotation, {x,y,z});
-  kinects[i].rotation = updatedKinectRotation;
-  updateJSON({kinects});
+  updateKinect(
+    json,
+    i,
+    {rotation: updateTHREEEuler(json.kinects[i].rotation, {x,y,z})},
+    updateJSON);
 }
+
+export function updateKinectSize(json, i, {width=false, height=false}, updateJSON) {
+  updateKinect(
+    json,
+    i,
+    {
+      width: width ? parseFloat(width) : json.kinects[i].width,
+      height: height ? parseFloat(height) : json.kinects[i].height},
+    updateJSON);
+}
+
 
 /**
  * Allows you to update height and/or width of Sandbox.
@@ -171,16 +189,18 @@ export function addKinect(
       position ?
       position :
       new THREE.Vector3(
-        CONSTANTS.CAMERA_SPAWN_POSITION_X,
-        CONSTANTS.CAMERA_SPAWN_POSITION_Y,
-        CONSTANTS.CAMERA_SPAWN_POSITION_Z),
+        CONSTANTS.KINECT_SPAWN_POSITION_X,
+        CONSTANTS.KINECT_SPAWN_POSITION_Y,
+        CONSTANTS.KINECT_SPAWN_POSITION_Z),
     rotation:
       rotation ?
       rotation :
       new THREE.Euler(
-        CONSTANTS.CAMERA_SPAWN_ROTATION_X,
-        CONSTANTS.CAMERA_SPAWN_ROTATION_Y,
-        CONSTANTS.CAMERA_SPAWN_ROTATION_Z)});
+        CONSTANTS.KINECT_SPAWN_ROTATION_X,
+        CONSTANTS.KINECT_SPAWN_ROTATION_Y,
+        CONSTANTS.KINECT_SPAWN_ROTATION_Z),
+    width: CONSTANTS.KINECT_SPAWN_WIDTH,
+    height: CONSTANTS.KINECT_SPAWN_HEIGHT});
   updateJSON({kinects});
 }
 

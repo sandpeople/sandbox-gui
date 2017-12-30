@@ -29,7 +29,7 @@ class Sandbox extends React.Component {
         <h1>Sandbox</h1>
         <WidthHeightUlInput
           prefix="sandbox"
-          value={this.props.value}
+          valueObj={this.props.json.sandbox}
           json={this.props.json}
           updateInput={this.updateInput.bind(this)}
           onChange={this.props.onChange}
