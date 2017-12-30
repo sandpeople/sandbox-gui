@@ -19,7 +19,7 @@ class Kinect extends React.Component {
           height={this.props.json.kinects[this.id].height}
         />
         <meshBasicMaterial
-          color={0x00ff00}
+          color={CONSTANTS.KINECT_COLOR}
         />
       </mesh>
     );

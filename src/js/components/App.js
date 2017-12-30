@@ -3,6 +3,7 @@ import * as THREE from 'three';
 
 
 import {spawnKinect} from '../UtilsKinect';
+import {spawnProjector} from '../UtilsProjector';
 
 import CONSTANTS from '../../CONSTANTS';
 import RenderJSON from './render/RenderJSON';
@@ -27,6 +28,7 @@ class App extends Component {
           CONSTANTS.CAMERA_SPAWN_ROTATION_Z),
       },
       kinects: [],
+      projectors: []
     };
   }
   updateJSON(json) {
@@ -40,6 +42,7 @@ class App extends Component {
 
   componentDidMount() {
     spawnKinect(this.state, this.updateJSON.bind(this));
+    spawnProjector(this.state, this.updateJSON.bind(this));
   }
 
   render() {

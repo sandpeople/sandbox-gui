@@ -80,7 +80,7 @@ export function updateKinectSize(json, i, {width=false, height=false}, updateJSO
  */
 export function addKinect(
   json,
-  {position=false, rotation=false},
+  {position=false, rotation=false, height=false, width=false},
   updateJSON) {
   let kinects = json.kinects.slice();
   kinects.push({
@@ -98,8 +98,8 @@ export function addKinect(
         CONSTANTS.KINECT_SPAWN_ROTATION_X,
         CONSTANTS.KINECT_SPAWN_ROTATION_Y,
         CONSTANTS.KINECT_SPAWN_ROTATION_Z),
-    width: CONSTANTS.KINECT_SPAWN_WIDTH,
-    height: CONSTANTS.KINECT_SPAWN_HEIGHT});
+    width: width ? width : CONSTANTS.KINECT_SPAWN_WIDTH,
+    height: height ? height : CONSTANTS.KINECT_SPAWN_HEIGHT});
   updateJSON({kinects});
 }
 

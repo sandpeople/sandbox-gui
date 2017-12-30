@@ -1,7 +1,5 @@
 import React from 'react';
 
-import '../../../css/sidebar/Kinect.css';
-
 import {PositionRotation} from './PositionRotation';
 import WidthHeightUlInput from './WidthHeightUlInput';
 import {
@@ -9,6 +7,8 @@ import {
   deleteKinect,
   updateKinectRotation,
   updateKinectSize} from '../../UtilsKinect';
+import PositionRotationWidthHeightElement from './PositionRotationWidthHeightElement';
+
 
 class Kinect extends React.Component {
   constructor(props, context) {
@@ -49,24 +49,15 @@ class Kinect extends React.Component {
 
   render() {
     return (
-      <div className="kinect">
-        <div className="titlebar">
-          <h1>{'kinect' + (this.id + 1)}</h1>
-          <button onClick={this.delete.bind(this)}>X</button>
-        </div>
-        <WidthHeightUlInput
-          prefix="kinect"
-          valueObj={this.props.json.kinects[this.id]}
-          json={this.props.json}
-          updateInput={this.updateInput.bind(this)}
-          onChange={this.props.onChange}
-        />
-        <PositionRotation
-          className="kinect"
-          valueObj={this.props.json.kinects[this.id]}
-          onChange={this.updateInput.bind(this)}
-        />
-      </div>
+      <PositionRotationWidthHeightElement
+        className="kinect"
+        id={this.id}
+        property="kinects"
+        delete={this.delete.bind(this)}
+        json={this.props.json}
+        updateInput={this.updateInput.bind(this)}
+        onChange={this.props.onChange}
+      />
     );
   }
 }

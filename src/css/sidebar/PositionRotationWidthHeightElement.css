@@ -1,0 +1,17 @@
+.position-rotation-height-width .titlebar {
+  height: 40px;
+}
+
+.position-rotation-height-width .titlebar h1 {
+  float: left;
+}
+
+.position-rotation-height-width .titlebar button {
+  float: right;
+  margin-top: 5px;
+}
+
+.position-rotation-height-width {
+  border-top-width: 1px;
+  border-top-style: solid;
+}
