@@ -1,7 +1,5 @@
 import * as THREE from 'three';
 
-import CONSTANTS from '../CONSTANTS';
-
 /**
  * Allows you to create a new THREE.Euler based on an euler object but with
  * modified xyz values.

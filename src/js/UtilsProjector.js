@@ -76,7 +76,7 @@ export function addProjector(
     positionPov:
       positionPov ?
       positionPov :
-      new THREE.Euler(
+      new THREE.Vector3(
         CONSTANTS.PROJECTOR_SPAWN_POSITION_POV_X,
         CONSTANTS.PROJECTOR_SPAWN_POSITION_POV_Y,
         CONSTANTS.PROJECTOR_SPAWN_POSITION_POV_Z)});

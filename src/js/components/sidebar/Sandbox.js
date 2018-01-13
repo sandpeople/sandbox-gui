@@ -1,7 +1,7 @@
 import React from 'react';
 
 import '../../../css/columns.css';
-import {updateSandbox, capitalize} from '../../Utils';
+import {updateSandbox} from '../../Utils';
 
 import WidthHeightUlInput from './WidthHeightUlInput';
 

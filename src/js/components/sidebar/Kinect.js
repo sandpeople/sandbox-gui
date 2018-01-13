@@ -1,12 +1,11 @@
 import React from 'react';
 
-import {PositionRotation} from './PositionRotation';
-import WidthHeightUlInput from './WidthHeightUlInput';
 import {
   updateKinectPosition,
   deleteKinect,
   updateKinectRotation,
   updateKinectSize} from '../../UtilsKinect';
+
 import PositionRotationWidthHeightElement from './PositionRotationWidthHeightElement';
 
 

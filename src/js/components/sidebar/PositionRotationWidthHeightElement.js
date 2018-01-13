@@ -10,20 +10,6 @@ class PositionRotationWidthHeightElement extends React.Component {
     super(props, context);
     this.id = props.id;
   }
-  updateInput(e) {
-    let json = this.props.json;
-    let updateJSON = this.props.updateJSON;
-    let name = e.target.name;
-    let value = e.target.value;
-
-    console.log(e.target.name, e.target.value);
-  }
-
-  delete() {
-    let json = this.props.json;
-    let updateJSON = this.props.updateJSON;
-
-  }
 
   render() {
     return (
