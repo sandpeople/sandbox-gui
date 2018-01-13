@@ -2,10 +2,13 @@ import React, { Component } from 'react';
 import * as THREE from 'three';
 
 
+import CONSTANTS from '../../CONSTANTS';
+import CONFIG from '../../CONFIG';
+
+import {postToApi} from '../UtilsApi';
+
 import {spawnKinect} from '../UtilsKinect';
 import {spawnProjector} from '../UtilsProjector';
-
-import CONSTANTS from '../../CONSTANTS';
 import RenderJSON from './render/RenderJSON';
 import Sidebar from './sidebar/Sidebar';
 
@@ -30,10 +33,14 @@ class App extends Component {
       kinects: [],
       projectors: []
     };
+    this.mounted = false;
   }
+
   updateJSON(json) {
     this.setState(json);
     this.rerender();
+
+    postToApi(this.state);
   }
 
   getManualRenderTrigger(trigger) {
