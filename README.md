@@ -3,6 +3,10 @@
 Web Frontend to calibrate our Kinect Project.
 CCFR
 
+# Configuration
+The only thing you can currently tweak is the api path. By default with post our new calibration JSON to `/api/calibration`. You can change the `/api` to anything you want, just change the variable in `src/config.js and don't forget to rebuild the webui.`
+
+
 # How to build
 
 - Make sure you have node at least in v9.3.0  and npm in v5.6.0. Older might work, not tested.
